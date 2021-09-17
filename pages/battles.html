@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records</title>
+    <link rel='stylesheet' href="../styles/bootstrap.min.css">
+    <link rel='stylesheet' href="../styles/main.css">
+    <link rel='icon' href = '../styles/favicon.ico'>
+    <script src ='../js/variables.js'></script>
+    <script>
+        if(!localStorage.token){window.location.replace('login.html'); }
+    </script>
+</head>
+<body onload = 'checkUsername();'>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="../index.html">Stat Tracker</a>
+            <button id= 'logout' class="btn btn-secondary my-2 my-sm-0 ml-auto" type="submit" onclick = 'logButton()'></button>
+        </nav>
+    </header>
+    <h1 class = 'text-center' id='welcome'></h1>
+    <form id = 'battleForm'>
+        <fieldset>
+          <legend>New Battle</legend>
+          <div id='error'></div>
+          <input type="hidden" id="battleID" name="battleID" value="">
+          <div class="form-group">
+            <input type="radio" id="great" class = 'radio small' name="league" value="Great" checked='true'>
+            <label for="great">Great<img src="../styles/greatLeague.png" style="width:40%"/></label>
+            <input type="radio" id="ultra" class = 'radio small' name="league" value="Ultra">
+            <label for="ultra">Ultra<img src="../styles/ultraLeague.png" style="width:40%"/></label>
+            <input type="radio" id="master" class = 'radio small' name="league" value="Master">
+            <label for="master">Master<img src="../styles/masterLeague.png" style="width:40%"/></label>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="text" class="form-control" id="date">
+          </div>
+          <button class="btn btn-primary" id="fillDefaults">Fill Default</button><br>
+          <div class="form-group autocomplete" style="width:32%">
+            <label for='myLead'>My Team:</label>
+            <input type="text" class="form-control" id="myLead" placeholder="">
+          </div> 
+          <div class="form-group autocomplete" style="width:32%">
+            <input type="text" class="form-control" id="mySecond" placeholder="">
+          </div> 
+          <div class="form-group autocomplete" style="width:32%">
+            <input type="text" class="form-control" id="myThird" placeholder="">
+          </div> 
+          <div class="form-group autocomplete" style="width:32%">
+            <label for='theirLead'>Their Team:</label>
+            <input type="text" class="form-control" id="theirLead" placeholder="">
+          </div> 
+          <div class="form-group autocomplete" style="width:32%">
+            <input type="text" class="form-control" id="theirSecond" placeholder="">
+          </div> 
+          <div class="form-group autocomplete" style="width:32%">
+            <input type="text" class="form-control" id="theirThird" placeholder="">
+          </div> 
+          <div class="form-group">
+            <input type="radio" id="win" class = 'radio' name="winLoss" value="Win" checked='true'>
+            <label for="win">Win</label>
+            <input type="radio" id="loss" class = 'radio' name="winLoss" value="Loss">
+            <label for="loss">Loss</label>
+          </div>
+          <div class="form-group">
+            <input type="radio" id="me" class = 'radio' name="lead" value="I Led" checked='true'>
+            <label for="me">I Led</label>
+            <input type="radio" id="them" class = 'radio' name="lead" value="They Led">
+            <label for="them">They Led</label>
+          </div>
+          <!--<div class="form-group">
+            <label for="catches">Catches</label>
+            <input type="number" class="form-control" id="catches" placeholder="Catches">
+          </div>
+          <div class="form-group">
+            <label for="kms">KMs</label>
+            <input type="number" step="0.1" class="form-control" id="kms" placeholder="KMs">
+          </div>
+          <div class="form-group">
+            <label for="stardust">Stardust</label>
+            <input type="number" class="form-control" id="stardust" placeholder="Stardust">
+          </div>
+          <div class="form-group">
+            <label for="luckyEggs">Lucky Eggs</label>
+            <input type="number" class="form-control" id="luckyEggs" placeholder="# Lucky Eggs" value = 0>
+          </div>
+          <div class="form-group">
+            <label for="comment">Comments:</label>
+            <textarea class="form-control" id="comment" rows="3"></textarea>
+          </div> -->
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="reset" class="btn btn-danger">Reset</button>
+        </fieldset>
+      </form>
+      <section class = 'mt-3'>
+        <table  class="table table-hover" id = "battleTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>League</th>
+              <th>My Team</th>
+              <th>Their Team</th>
+              <th>Win</th>
+              <th>Led</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </section>
+      <!-- <div class='text-center mb-3'>
+        <button class='btn btn-warning ml-auto hidden' onclick="viewMore();" id='viewMore'>View More</button>
+      </div> -->
+    <script src = '../js/autocomplete.js'></script>
+    <script src = '../js/battles.js'></script>
+    <script src = '../js/index.js'></script>
+</body>
+</html>

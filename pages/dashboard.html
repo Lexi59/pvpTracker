@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel='stylesheet' href="../styles/bootstrap.min.css">
+    <link rel='stylesheet' href="../styles/main.css">
+    <link rel='icon' href = '../styles/favicon.ico'>
+    <script src ='../js/variables.js'></script>
+    <script>
+      if(!localStorage.token){window.location.replace('login.html');}
+    </script>
+</head>
+<body onload = 'checkUsername();'>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="">Stat Tracker</a>
+            <div class = 'ml-auto'>
+                <button id='account' class='btn btn-secondary' onclick='window.location.replace("account.html");'>ⓘ</button>
+                <button id= 'logout' class="btn btn-secondary my-2 my-sm-0 ml-auto" type="submit" onclick = 'logButton()'></button>
+            </div>
+        </nav>
+    </header>
+
+    <h1 class="text-center display-3" id='welcome'></h1>
+    <div id='error'></div>
+        <div id='overallStats' class = 'text-center' style='display: none;'>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 40rem;">
+                <div class="card-header text-center">Overall Stats</div>
+                <div class="card-body" id='overallStatCard'>
+
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 40rem;">
+                <div class="card-header text-center">Personal Bests</div>
+                <div class="card-body" id='personalBestsCard'>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 40rem;">
+                <div class="card-header text-center">This Week</div>
+                <div class="card-body" id='thisWeekCard'>
+                </div>
+            </div>
+        </div>
+        <div class = 'text-center clear'>
+            <button class = "btn btn-success" onclick='window.location.replace("battles.html");'>Add Battle</button>
+            <!-- <button class = "btn btn-primary" onclick='window.location.replace("range.html");'>View Range</button> -->
+        </div>
+        
+        <div id='chartDiv'>
+            <div class = 'chart mb-3'><canvas id="LedWonChart"></canvas></div><br>
+            <div class = 'chart'><canvas id="typesIHitChart"></canvas></div>
+            <div class = 'chart'><canvas id="KMSChart"></canvas></div>
+            <div class = 'chart'><canvas id="CatchesChart"></canvas></div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src='../js/dashboard.js'></script>
+    <script src = '../js/index.js'></script>
+  </body>
+</html>

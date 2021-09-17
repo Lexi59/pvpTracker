@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Info</title>
+    <link rel='stylesheet' href="../styles/bootstrap.min.css">
+    <link rel='stylesheet' href="../styles/main.css">
+    <link rel='icon' href = '../styles/favicon.ico'>
+    <script src ='../js/variables.js'></script>
+    <script>
+      if(!localStorage.token){window.location.replace('login.html');}
+    </script>
+</head>
+<body onload="checkUsername();">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="dashboard.html">Stat Tracker</a>
+            <button id= 'logout' class="btn btn-secondary my-2 my-sm-0 ml-auto" type="submit" onclick = 'logButton()'></button>
+        </nav>
+    </header>
+    <form id = 'accountForm'>
+        <fieldset>
+          <legend>Account Info</legend>
+          <div id='error'></div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" disabled>
+          </div>
+          <div class='form-group'>
+            <button type="submit" class ='btn btn-info' id='changePassBtn'>Change Password</button>
+          </div>
+          <div class="form-group hidden">
+            <label for="password">Current Password</label><br>
+            <input type='password' class='form-control' id='password'>
+          </div>
+          <div class="form-group hidden">
+            <label for="newPassword">New Password</label><br>
+            <input type='password' class='form-control' id='newPassword'>
+          </div>
+          <div class="form-group hidden">
+            <label for="confirmNewPassword">Confirm New Password</label><br>
+            <input type='password' class='form-control' id='confirmNewPassword'>
+          </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary hidden">Submit</button>
+        </fieldset>
+      </form>
+      <form id='teamForm'>
+        <fieldset>
+          <legend>Set Default Teams</legend>
+          <div id ='teamError'></div>
+          <div class = 'form-group'>
+            <div class="form-group autocomplete" style="width:32%">
+              <label for='greatLead'>My Great League Team:</label>
+              <input type="text" class="form-control" id="greatLead" placeholder="">
+            </div> 
+            <div class="form-group autocomplete" style="width:32%">
+              <input type="text" class="form-control" id="greatSecond" placeholder="">
+            </div> 
+            <div class="form-group autocomplete" style="width:32%">
+              <input type="text" class="form-control" id="greatThird" placeholder="">
+            </div> 
+          </div>
+          <div class = 'form-group'>
+            <div class="form-group autocomplete" style="width:32%">
+              <label for='ultraLead'>My Ultra League Team:</label>
+              <input type="text" class="form-control" id="ultraLead" placeholder="">
+            </div> 
+            <div class="form-group autocomplete" style="width:32%">
+              <input type="text" class="form-control" id="ultraSecond" placeholder="">
+            </div> 
+            <div class="form-group autocomplete" style="width:32%">
+              <input type="text" class="form-control" id="ultraThird" placeholder="">
+            </div> 
+          </div>
+          <div class = 'form-group'>
+            <div class="form-group autocomplete" style="width:32%">
+              <label for='masterLead'>My Master League Team:</label>
+              <input type="text" class="form-control" id="masterLead" placeholder="">
+            </div> 
+            <div class="form-group autocomplete" style="width:32%">
+              <input type="text" class="form-control" id="masterSecond" placeholder="">
+            </div> 
+            <div class="form-group autocomplete" style="width:32%">
+              <input type="text" class="form-control" id="masterThird" placeholder="">
+            </div> 
+          </div>
+          <button type="submit" class="btn btn-primary" >Submit</button>
+        </fieldset>
+      </form>
+      <!-- <form id = 'levelForm' class = 'hidden'>
+        <fieldset>
+          <legend>Different Level</legend>
+          <div id='LevelError'></div>
+          <div class="form-group">
+            <label for="otherLevel">I'm a different level:</label><br>
+            <input type='number' class='form-control' id='otherLevel' aria-describedby="levelHelp">
+            <small id='levelHelp' class="form-text text-muted">May take a few minutes to take effect.</small>
+          </div>
+          <div class="form-group">
+            <input type="checkbox" id="autocalculate" value="Auto Calc">
+            <label for="autocalculate">Auto Calculate Level</label><br>
+          </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary" >Submit</button>
+        </fieldset>
+      </form> -->
+
+    <script src = '../js/autocomplete.js'></script>
+    <script src='../js/account.js'></script>
+    <script src = '../js/index.js'></script>
+  </body>
+</html>

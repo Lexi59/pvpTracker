@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <link rel='stylesheet' href="../styles/bootstrap.min.css">
+    <link rel='stylesheet' href="../styles/main.css">
+    <link rel='icon' href = '../styles/favicon.ico'>
+    <script src ='../js/variables.js'></script>
+    <script>
+      if(!localStorage.token){window.location.replace('login.html')}
+    </script>
+</head>
+<body onload='getEvents();'>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="../index.html">Stat Tracker</a>
+            <button id= 'logout' class="btn btn-secondary my-2 my-sm-0 ml-auto" type="submit" onclick = 'logButton()'></button>
+        </nav>
+    </header>
+    <form data-bitwarden-watching="1" id = 'eventForm'>
+      <fieldset>
+        <legend>Event Dates</legend>
+        <div id='error'></div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" placeholder="Enter Unique Event Title" required autofocus>
+        </div>
+        <div class="form-group">
+          <label for="startDate">Start Date</label>
+          <input type="date" class="form-control" id="startDate" placeholder="Enter Start Date" required>
+        </div>
+        <div class="form-group">
+          <label for="endDate">End Date</label>
+          <input type="date" class="form-control" id="endDate" placeholder="Enter End Date" required>
+        </div>
+        <div class="form-group">
+          <label for="comments">Comments</label>
+          <input type="text" class="form-control" id="comments">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+    <div id = 'eventStats' style='display: none;'>
+        <h1>Event Stats</h1>
+        <p id='startDateOutput'></p>
+        <p id='endDateOutput'></p>
+        <p id='XP'></p>
+        <p id='catches'></p>
+        <p id='kms'></p>
+        <p id='stardust'></p>
+        <p id='luckyEggs'></p>
+    </div>
+
+    <table  class="table table-hover" id = "eventTable">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Comments</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    <script src='../js/range.js'></script>
+    <script src = '../js/index.js'></script>
+  </body>
+</html>
