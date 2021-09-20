@@ -142,8 +142,8 @@ document.querySelector('#battleForm').addEventListener('submit', (e) => {
       logErrorMessage("Invalid Date");
       error = true;
     }
-    if (myTeam.filter(x => x).length < 3 || theirTeam.filter(x => x).length < 3) {
-      logErrorMessage("Make sure all six team members are filled in");
+    if (myTeam.filter(x => x).length < 3) {
+      logErrorMessage("Make sure all three of your team members are filled in");
       error = true;
     }
     if (!error) {
